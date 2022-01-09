@@ -14,13 +14,20 @@
     <thead>
     <th>Tytuł</th>
     <th>Autor</th>
+    <th>Seria</th>
     <th>Liczba stron</th>
+    <th>Kategoria wiekowa</th>
+    <th>Ilustracje</th>
+    <th>Okładka</th>
+    <th>Liczba przeczytań</th>
+    <th>Data ostatniego czytania</th>
     </thead>
 {% for book in books %}
     <tr>
         <td><a href="/books/{{ loop.index }}">{{ book.title }}</a></td>
         <td>{{ book.author }}</td>
         <td>{{ book.pages }}</td>
+        <td>{{ book.age }}</td>
     </tr>
 {% endfor %}
 </table>
