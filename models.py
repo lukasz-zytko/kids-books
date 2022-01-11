@@ -24,6 +24,9 @@ class Books:
         data.pop('csrf_token')
         self.books.append(data)
 
+    def create_api(self, data):
+        self.books.append(data)
+
     def save_all(self):
         with open("books.json", "w") as f:
             json.dump(self.books, f)
@@ -33,6 +36,10 @@ class Books:
         self.books[id] = data
         self.save_all()
     
+    def update_api(self, id, data):
+        self.books[id] = data
+        self.save_all()
+
     def delete(self, id):
         book = self.get(id)
         if book:

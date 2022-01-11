@@ -8,7 +8,7 @@
         th {border: 1px solid rgb(104, 4, 104); font-family: Arial, Helvetica, sans-serif; font-size: 14px; background-color: rgb(120, 214, 76) ;}
         h1, h2 {font-family: Verdana, Geneva, Tahoma, sans-serif }
         input#button {float: right; padding: 5px 25px 5px 25px; background-color: rgb(199, 9, 199);}
-        div {max-width: 300px;}
+        div {max-width: 300px; margin: 5px 0 0 20px;}
     </style>
 </head>
 <body>
@@ -41,7 +41,7 @@
 {% endfor %}
 </table>
 <div>
-    <h2> Dodaj nową książkę (nr: {{count+1}}): </h2>
+    <h2> Dodaj nową (nr: {{count+1}}): </h2>
     <form method="POST" action="/books/">
         {{ form.hidden_tag() }}
         <table>
@@ -52,7 +52,7 @@
                 </tr>
             {% endfor %}              
         </table>
-        <input id="button" type="submit" value="Go">
+        <input id="button" type="submit" value="Dodaj">
     </form>
 </div>
 </body>
