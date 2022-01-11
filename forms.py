@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, IntegerField, SelectField
-from wtforms.fields.numeric import IntegerRangeField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired
 
 class BooksForm(FlaskForm):
     title = StringField('Tytuł', validators=[DataRequired()])

@@ -29,9 +29,11 @@ def book_details(book_id):
         return redirect(url_for("books_list"))
     return render_template("book.html", form=form, book_id=book_id)
 
+
 @app.route("/api/v1/books/", methods=["GET"])
 def books_list_api_v1():
     return jsonify(books.all())
+
 
 @app.route("/api/v1/books/", methods=["POST"])
 def create_book():
@@ -52,6 +54,7 @@ def create_book():
     books.save_all()
     return jsonify({'book': book}), 201
 
+
 @app.route("/api/v1/books/<int:book_id>", methods=["GET"])
 def get_book(book_id):
     if book_id < 1 or book_id > books.count():
@@ -59,12 +62,14 @@ def get_book(book_id):
     book = books.get(book_id-1)
     return jsonify({"book": book})
 
+
 @app.route("/api/v1/books/<int:book_id>", methods=['DELETE'])
 def delete_book(book_id):
     if book_id < 1 or book_id > books.count():
         abort(404)
     result = books.delete(book_id-1)
     return jsonify({'result': result})
+
 
 @app.route("/api/v1/books/<int:book_id>", methods=["PUT"])
 def update_book(book_id):
