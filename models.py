@@ -32,5 +32,13 @@ class Books:
         data.pop('csrf_token')
         self.books[id] = data
         self.save_all()
+    
+    def delete(self, id):
+        book = self.get(id)
+        if book:
+            self.books.remove(book)
+            self.save_all()
+            return True
+        return False
 
 books = Books()

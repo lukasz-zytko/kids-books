@@ -41,6 +41,13 @@ def get_book(book_id):
     book = books.get(book_id-1)
     return jsonify({"book": book})
 
+@app.route("/api/v1/books/<int:book_id>", methods=['DELETE'])
+def delete_book(book_id):
+    if book_id < 1 or book_id > books.count():
+        abort(404)
+    result = books.delete(book_id-1)
+    return jsonify({'result': result})
+
 #errorhandlers
 @app.errorhandler(400)
 def bad_request(error):
