@@ -13,6 +13,12 @@ class Books:
 
     def get(self, id):
         return self.books[id]
+    
+    def count(self):
+        self.counter = 0
+        for _ in self.books:
+            self.counter += 1
+        return self.counter
 
     def create(self, data):
         data.pop('csrf_token')
