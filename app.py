@@ -19,7 +19,7 @@ def books_list():
     return render_template("books.html", form=form, books=books.all(), error=error)
 
 
-@app.route("/books/<int:book_id>/", methods=["GET", "POST"])
+@app.route("/books/<int:book_id>", methods=["GET", "POST"])
 def book_details(book_id):
     book = books.get(book_id - 1)
     form = BooksForm(data=book)

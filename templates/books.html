@@ -20,14 +20,19 @@
     <th>Ilustracje</th>
     <th>Okładka</th>
     <th>Liczba przeczytań</th>
-    <th>Data ostatniego czytania</th>
+    <th>Ostatnio czytane</th>
     </thead>
 {% for book in books %}
     <tr>
         <td><a href="/books/{{ loop.index }}">{{ book.title }}</a></td>
         <td>{{ book.author }}</td>
+        <td>{{ book.series }}</td>
         <td>{{ book.pages }}</td>
         <td>{{ book.age }}</td>
+        <td>{{ book.pictures }}</td>
+        <td>{{ book.cover }}</td>
+        <td>{{ book.readings }}</td>
+        <td>{{ book.last_read }}</td>
     </tr>
 {% endfor %}
 </table>
